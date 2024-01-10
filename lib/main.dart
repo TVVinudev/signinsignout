@@ -49,6 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Center(child: Text('Sign up',style: TextStyle(color: Colors.white),)),
                     decoration: BoxDecoration(color: Colors.orange, borderRadius: BorderRadius.circular(20)),
                   ),
-                )
+                ),
               ],
             ),
           ),
