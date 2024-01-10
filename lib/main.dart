@@ -47,7 +47,15 @@ class _MyHomePageState extends State<MyHomePage> {
       print(e);
     }
   }
-
+  Future Signinuser() async{
+    try{
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: _username.text, password: _password.text);
+      print('sucessfully completed');
+    }
+    catch(e){
+      print(e);
+    }
+  }
 
 
 
@@ -82,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 MaterialButton(
                   onPressed: () {
-                  Createuser();
+                    Signinuser();
                   },
                   child: Container(
                     height: 40,
