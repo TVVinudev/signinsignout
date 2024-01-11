@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:signinsignout/firebase_options.dart';
+import 'package:signinsignout/first.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
       ),
       home: const MyHomePage(title: 'Log In'),
+      routes:{
+            'firstScreen' : (context) => hh(),
+      },
     );
   }
 }
@@ -38,19 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _username = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
-  Future Createuser() async{
-    try{
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _username.text, password: _password.text);
-      print('sucessfully completed');
-    }
-    catch(e){
-      print(e);
-    }
-  }
+
   Future Signinuser() async{
     try{
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: _username.text, password: _password.text);
-      print('sucessfully completed');
+     final result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _username.text, password: _password.text);
+      if(result != null)
+      Navigator.of(context).pushNamed('firstScreen');
     }
     catch(e){
       print(e);
